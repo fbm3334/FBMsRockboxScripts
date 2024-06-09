@@ -36,4 +36,10 @@ if ($selectedDrive) {
 } else {
     Write-Host "Invalid selection."
 }
+$selectedDrive = $selectedDrive.DeviceID + "\"
 
+if ($setupScrobbling) {
+    Copy-Item -Path .\Setup\Scrobble.cmd -Destination $selectedDrive
+    Copy-Item -Path .\Setup\Scrobble.ps1 -Destination $selectedDrive
+    Write-Host "To scrobble from this player, navigate to the player in Windows Explorer and double click on Scrobble.cmd. The scrobbles should then be uploaded to Last.fm." -ForegroundColor Green
+}
