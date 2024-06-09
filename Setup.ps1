@@ -35,3 +35,8 @@ if ($downloadRbScrobbler) {
 # Run the initial configuration to set up scrobbling
 Write-Host "Running the inital setup for rb-scrobbler - follow the instructions shown below:"
 & "~\rb-scrobbler-windows.exe" "-auth"
+
+# Print a message to say that scrobbler setup is complete
+Write-Host "Scrobbling set up complete."
+Write-Host "You will need to enable scrobbling in Rockbox:"
+Write-Host "    Settings > Playback Settings > Last.fm Log"
