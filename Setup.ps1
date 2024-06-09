@@ -14,11 +14,13 @@ Write-Host "Latest version of rb-scrobbler is $latestVersion."
 # Get the URL
 $assetUrl = $latestMasterBuild.assets.browser_download_url
 $exeUrl = $assetUrl | Where-Object { $_ -like "*rb-scrobbler-windows.exe*" }
-Write-Host "The download URL is $exeUrl"
 
 # Save the exe to the user directory
 $rbScrobblerSaveLocation = $env:USERPROFILE + "\rb-scrobbler-windows.exe"
+Write-Host "Downloading $exeUrl"
 Invoke-WebRequest -Uri $exeUrl -OutFile $rbScrobblerSaveLocation
 Write-Host "rb-scrobbler-windows.exe has downloaded successfully."
 
-# Step 2 - Run the initial configuration to 
+# Step 2 - Run the initial configuration to set up scrobbling
+Write-Host "Running the inital setup for rb-scrobbler - follow the instructions shown below:"
+& "~\rb-scrobbler-windows.exe" "-auth"
